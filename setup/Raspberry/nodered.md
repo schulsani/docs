@@ -1,9 +1,8 @@
 ---
-title: Raspberry
+title: Node Red
 layout: home
 parent: Raspberry
- 
-nav_order: 1
+grand_parent: Setup
 ---
 # Einrichtung eines Raspberry Pi mit schulsani.local als IP-Adresse
 
