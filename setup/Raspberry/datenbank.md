@@ -2,7 +2,6 @@
 title: Datenbank
 layout: home
 parent: Raspberry
-grand_parent: Setup
 nav_order: 3
 ---
 # MySQL Datenbank mit phpMyAdmin installieren und zusätzlichen Nutzer für Node-RED einrichten
