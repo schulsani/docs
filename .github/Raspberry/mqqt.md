@@ -3,7 +3,7 @@ title: MQTT
 layout: home
 nav_order: 3
 parent: Raspberry
-grand_parent: Setup
+ 
 ---
 # Installation eines Mosquitto-Servers auf einem Raspberry Pi
 
