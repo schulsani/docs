@@ -7,3 +7,7 @@ url: https://schulsani.github.io/wiki
 aux_links:
   Website: https://schulsani.github.io
   Github: https://github.com/schulsani
+# Set a path/url to a favicon that will be displayed by the browser
+favicon_ico: "1000011977-removebg-preview.ico"
+# Set a path/url to a logo that will be displayed instead of the title
+logo: "1000011977-removebg-preview.png"
