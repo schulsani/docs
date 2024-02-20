@@ -1,6 +1,7 @@
 ---
 title: Node Red
 layout: home
+parent: Setup
 ---
 # Einrichtung eines Raspberry Pi mit schulsani.local als IP-Adresse
 

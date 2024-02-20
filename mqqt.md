@@ -1,132 +1,92 @@
 ---
-# snazzyDocs - DO NOT REMOVE OR EDIT BELOW THIS LINE
-title: MQQT
-id: JKN-9FVD-U3Y-B59
-slug: mqqt
-isVisible: true
-lastUpdated: '2024-02-20 11:54:35'
+title: MQTT
+layout: home
+parent: Setup
+nav_order: 3
 ---
-\# Installation eines Mosquitto-Servers auf einem Raspberry Pi
+# Installation eines Mosquitto-Servers auf einem Raspberry Pi
 
-<br />
-
-\## Schritt 1: Installation von Mosquitto
-
-<br />
+## Schritt 1: Installation von Mosquitto
 
 Führen Sie die folgenden Befehle aus, um Mosquitto auf Ihrem Raspberry Pi zu installieren:
 
-<br />
-
-\`\`\`bash
+```bash
 
 sudo apt update
 
 sudo apt install mosquitto mosquitto-clients
 
-\`\`\`
+```
 
-<br />
-
-\## Schritt 2: Konfiguration von Mosquitto
-
-<br />
+## Schritt 2: Konfiguration von Mosquitto
 
 Bearbeiten Sie die Mosquitto-Konfigurationsdatei:
 
-<br />
-
-\`\`\`bash
+```bash
 
 sudo nano /etc/mosquitto/mosquitto.conf
 
-\`\`\`
-
-<br />
+```
 
 Fügen Sie die folgenden Zeilen hinzu, um die Benutzer "Pager" und "nodered" zu konfigurieren:
 
-<br />
+```
 
-\`\`\`
+allow_anonymous false
 
-allow\_anonymous false
+password_file /etc/mosquitto/passwd
 
-password\_file /etc/mosquitto/passwd
+```
 
-\`\`\`
+Speichern und schließen Sie die Datei, indem Sie `Ctrl + X`, dann `Y` und `Enter` drücken.
 
-<br />
-
-Speichern und schließen Sie die Datei, indem Sie \`Ctrl + X\`, dann \`Y\` und \`Enter\` drücken.
-
-<br />
-
-\## Schritt 3: Benutzer hinzufügen
-
-<br />
+## Schritt 3: Benutzer hinzufügen
 
 Führen Sie die folgenden Befehle aus, um die Benutzer "Pager" und "nodered" hinzuzufügen und ihre Passwörter festzulegen:
 
-<br />
+```bash
 
-\`\`\`bash
+sudo mosquitto_passwd -c /etc/mosquitto/passwd Pager
 
-sudo mosquitto\_passwd -c /etc/mosquitto/passwd Pager
+sudo mosquitto_passwd /etc/mosquitto/passwd nodered
 
-sudo mosquitto\_passwd /etc/mosquitto/passwd nodered
-
-\`\`\`
-
-<br />
+```
 
 Geben Sie die Passwörter ein, wenn Sie dazu aufgefordert werden.
 
-<br />
-
-\## Schritt 4: Autostart-Konfiguration
-
-<br />
+## Schritt 4: Autostart-Konfiguration
 
 Bearbeiten Sie die Autostart-Konfigurationsdatei für Mosquitto:
 
-<br />
-
-\`\`\`bash
+```bash
 
 sudo nano /etc/init.d/mosquitto
 
-\`\`\`
-
-<br />
+```
 
 Fügen Sie den folgenden Inhalt hinzu:
 
-<br />
+```bash
 
-\`\`\`bash
+!/bin/bash
 
-# !/bin/bash
+### BEGIN INIT INFO
 
-\### BEGIN INIT INFO
+# Provides: mosquitto
 
-\# Provides: mosquitto
+# Required-Start: $remote_fs $syslog
 
-\# Required-Start: $remote\_fs $syslog
+# Required-Stop: $remote_fs $syslog
 
-\# Required-Stop: $remote\_fs $syslog
+# Default-Start: 2 3 4 5
 
-\# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
 
-\# Default-Stop: 0 1 6
+# Short-Description: mosquitto MQTT v3.1 message broker
 
-\# Short-Description: mosquitto MQTT v3.1 message broker
+# Description: mosquitto is a MQTT v3.1 message broker
 
-\# Description: mosquitto is a MQTT v3.1 message broker
-
-\### END INIT INFO
-
-<br />
+### END INIT INFO
 
 DESC="Mosquitto MQTT v3.1 message broker"
 
@@ -138,37 +98,31 @@ PIDFILE=/var/run/$NAME.pid
 
 SCRIPTNAME=/etc/init.d/$NAME
 
-<br />
+# Exit if the package is not installed
 
-\# Exit if the package is not installed
-
-\[ -x "$DAEMON" \] || exit 0
-
-<br />
+[ -x "$DAEMON" ] || exit 0
 
 . /lib/lsb/init-functions
-
-<br />
 
 case "$1" in
 
 start)
 
-log\_daemon\_msg "Starting $DESC" "$NAME"
+log_daemon_msg "Starting $DESC" "$NAME"
 
 start-stop-daemon --start --quiet --oknodo --background --pidfile $PIDFILE --make-pidfile --exec $DAEMON -- -c /etc/mosquitto/mosquitto.conf
 
-log\_end\_msg $?
+log_end_msg $?
 
 ;;
 
 stop)
 
-log\_daemon\_msg "Stopping $DESC" "$NAME"
+log_daemon_msg "Stopping $DESC" "$NAME"
 
 start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE --exec $DAEMON
 
-log\_end\_msg $?
+log_end_msg $?
 
 ;;
 
@@ -182,9 +136,9 @@ $0 start
 
 ;;
 
-\*)
+*)
 
-echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" &gt;&2
+echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
 
 exit 1
 
@@ -192,50 +146,32 @@ exit 1
 
 esac
 
-<br />
-
 exit 0
 
-\`\`\`
+```
 
-<br />
+Speichern und schließen Sie die Datei, indem Sie `Ctrl + X`, dann `Y` und `Enter` drücken.
 
-Speichern und schließen Sie die Datei, indem Sie \`Ctrl + X\`, dann \`Y\` und \`Enter\` drücken.
-
-<br />
-
-\## Schritt 5: Autostart aktivieren
-
-<br />
+## Schritt 5: Autostart aktivieren
 
 Führen Sie die folgenden Befehle aus, um den Autostart für Mosquitto zu aktivieren:
 
-<br />
-
-\`\`\`bash
+```bash
 
 sudo chmod +x /etc/init.d/mosquitto
 
 sudo update-rc.d mosquitto defaults
 
-\`\`\`
+```
 
-<br />
-
-\## Schritt 6: Neustart
-
-<br />
+## Schritt 6: Neustart
 
 Starten Sie den Raspberry Pi neu, um die Änderungen zu übernehmen:
 
-<br />
-
-\`\`\`bash
+```bash
 
 sudo reboot
 
-\`\`\`
-
-<br />
+```
 
 Nach dem Neustart sollte Mosquitto automatisch gestartet werden und die Benutzer "Pager" und "nodered" können sich mit ihren entsprechenden Passwörtern über MQTT verbinden.
