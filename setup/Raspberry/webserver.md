@@ -1,7 +1,8 @@
 ---
 title: Webserver
 layout: home
-parent: Setup
+parent: Raspberry
+grand_parent: Setup
 nav_order: 2
 ---
 # Installation von Apache2 und Kopieren von Inhalten aus GitHub
