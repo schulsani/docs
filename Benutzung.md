@@ -5,15 +5,15 @@ nav_order:
 ---
 ## Benutzung
 Um das System zu benutzen muss man einfach nur schulsani.local öffnen und dort das Passwort eingeben *(Standardpasswort: Geheim)*
-**Login**
+## Login
 ![enter image description here](https://i.postimg.cc/3NMBg3Kd/Video-Capture-20240216-075345.jpg)
-**Formular** 
+## Formular
 Nun kann Raum und Unfall angeben werden
 
 
 ![enter image description here](https://i.postimg.cc/KjZbvSdg/Video-Capture-20240216-075802.jpg)
 
-**Bestätigungs**
+## Bestätigung
 Nun wird angezeigt das der Unfall abgesendet wurde und auch wenn er bestätigt wurde
 ![enter image description here](https://i.postimg.cc/xCGY2TF2/Video-Capture-20240216-075807.jpg)
 ## Passwort ändern
