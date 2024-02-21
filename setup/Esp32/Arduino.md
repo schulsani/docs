@@ -64,7 +64,18 @@ grand_parent: Setup
 | USB Mode                      | CDC und JTAG            |
 
 Die fettgedruckten Optionen sind erforderlich, andere werden entsprechend den tatsächlichen Bedingungen ausgewählt.
-
+---
+**Details anpassen**
+Nun kannst du die login daten für mqtt und für Wlan eingeben
+`
+const char *ssid = "";
+const char *password = "";
+const char *mqtt_broker = "schulsani.local";
+const char *topic = "";
+const char *mqtt_username = "";
+const char *mqtt_password = "";
+const int mqtt_port = 1883;
+`
 ---
 
 **Hochladen des Codes**
