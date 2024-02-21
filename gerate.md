@@ -1,21 +1,18 @@
 ---
-# snazzyDocs - DO NOT REMOVE OR EDIT BELOW THIS LINE
-title: Geräte
-id: FUW-BRFL-Q54-JHU
-slug: gerate
-isVisible: true
-lastUpdated: '2023-03-02 09:40:09'
+title: Genutzte Gegenstände
+layout: home
+nav_order: 2
 ---
-# **<span style="color:rgba(26,26,26,1);">Das Setup</span>**
+## Genutzte Gegenstände
 
-<span style="color:rgb(0, 0, 0);">Das Setup besteht aus einem Raspberry Pi, an dem ein</span>[<span style="color:rgb(0, 0, 0);"> </span>](https://jugendforscht-projekt.ml/produkt2)<span style="color:rgb(0, 0, 0);">Display angeschlossen ist. Es ist an den Ports 5v (rot), GND (schwarz), SDA (gelb) und SCL (blau). Zudem gibt es einen Button, der an den Ports GPIO18 (rot) und GND (schwarz) angeschlossen ist und ein Buzzer der an VCC(rot) GND(schwarz) und IO (orange) angeschlossen ist.</span>
+Diese Dinge wurden im Projekt genutzt:
 
-<figure style="width:48%"><img align="right" src="https://lh4.googleusercontent.com/6Pw0SopDkACC_erTFerxSQyr4TkwjrFfQPai799cylMmQbGvMhofY_ujuP3Kkyt9mqTtnpDbll53yYi-Yal6z9KmyK6lgEt6shrm10WBWhj7fS7hyvUFuTYd1tuW-td4xQ=w1280" width="48%" /></figure>  
-  
-<figure><img src="https://app.snazzydocs.com/storage/users/sKoXGPuqdAZaMROp/docs/6cFfeDECGwRDwbIB/images/lecyvmsbsZwilEckDVhw.png" /></figure>  
-  
-[<u><span style="color:rgb(115, 67, 50);">Ein Raspberry Pi 3</span></u>](https://www.amazon.de/Raspberry-Pi-Model-ARM-Cortex-A53-Bluetooth/dp/B01CD5VC92/ref=asc_df_B01CD5VC92/?tag=googshopde-21&linkCode=df0&hvadid=222295766382&hvpos=&hvnetw=g&hvrand=7676518586649600108&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9041908&hvtargid=pla-344941896120&psc=1&th=1&psc=1) [<u><span style="color:rgb(115, 67, 50);">Ein i2c 20x4 LC-Display</span></u>](https://eckstein-shop.de/Character20x4LCDDisplayModule2004WhiteonBlue5VI2CInterfaceHD44780)<u><span style="color:rgb(115, 67, 50);"> </span></u> [<u><span style="color:rgb(115, 67, 50);">Ein handelsüblicher Button</span></u>](https://www.conrad.de/de/p/tru-components-yst-1103t-drucktaster-12-v-dc-0-05-a-1-x-aus-ein-tastend-l-x-b-12-mm-x-12-mm-1-st-1569016.html?hk=SEM&WT.mc_id=google_pla&gclid=Cj0KCQiAofieBhDXARIsAHTTldrAkouwp2jY0yPxUUh15v2St2F9oS_W4d_KFND3QS2vtJtD2QBPt6EaAqCSEALw_wcB) [<u><span style="color:rgb(115, 67, 50);">Ein handelsüblicher Buzzer</span></u>](https://www.amazon.in/CentIoT%C2%AE-Passive-Speaker-Protection-Raspberry/dp/B07T8PGS7V)
+-   [Raspberry Pi 4 Kit (Pi4 + Case + SD Card + Ladekabel)](https://www.idealo.de/preisvergleich/OffersOfProduct/200939546_-4-model-b-4gb-full-starter-kit-raspberry-pi-foundation.html)
+-   [2x TTGO S3](https://www.amazon.de/dp/B09J112YR7/ref=twister_B0B92JHXYN?_encoding=UTF8&psc=1)
+-   [2x Buzzer](https://www.ebay.de/itm/354645204935)
+-   [2x Akkus](https://www.ebay.de/itm/164947321186?chn=ps&_ul=DE&mkevt=1&mkcid=28)
+-   2x 3D gedruckte Gehäuse
 
-<br />
-
-<br />
+## Verkabelung Pager
+![enter image description here](https://de.share-your-photo.com/img/c1bfe2c63f.png)
+Der Buzzer muss an **GND** (Schwarz) und an **GPIO16**(Blau) angelötet werden und der Akku muss per Battery port angeschlossen sein.(Beim angegeben Akku muss das battery Kabel mit dem mit geliefertem des TTGO's verlötet werden)

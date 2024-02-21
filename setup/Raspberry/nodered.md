@@ -3,82 +3,74 @@ title: Node Red
 layout: home
 parent: Raspberry
 grand_parent: Setup
+nav_order: 6
 ---
-# Einrichtung eines Raspberry Pi mit schulsani.local als IP-Adresse
 
-## Voraussetzungen:
 
-- Raspberry Pi (beliebiges Modell)
+## Installation von Node-RED auf einem Raspberry Pi
 
-- MicroSD-Karte (mindestens 8 GB)
+1. **Voraussetzungen:**
+   - Raspberry Pi mit Raspbian OS (oder einem ähnlichen Betriebssystem) im Netzwerk verbunden.
+   - Zugriff auf die Befehlszeile des Raspberry Pi (entweder über SSH oder direkt).
 
-- Computer mit SD-Kartenleser
+2. **Öffnen Sie das Terminal:**
+   Öffnen Sie ein Terminalfenster auf Ihrem Raspberry Pi oder verbinden Sie sich über SSH.
 
-- Netzwerkverbindung
+3. **Aktualisieren Sie Ihr System:**
+   Führen Sie die folgenden Befehle aus, um sicherzustellen, dass Ihr System auf dem neuesten Stand ist:
 
-## Schritte:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   ```
 
-1. **Raspberry Pi OS herunterladen und auf die MicroSD-Karte flashen:**
+4. **Installieren Sie Node.js und npm:**
+   Node-RED benötigt Node.js und npm. Installieren Sie diese mit dem folgenden Befehl:
 
-- Laden Sie das neueste Raspberry Pi OS von der offiziellen Website herunter.
+   ```bash
+   sudo apt install -y nodejs npm
+   ```
 
-- Verwenden Sie ein Tool wie Etcher, um das Betriebssystem auf die MicroSD-Karte zu flashen.
+5. **Installieren von Node-RED:**
+   Verwenden Sie npm, um Node-RED global zu installieren:
 
-2. **Konfiguration der Datei "wpa_supplicant.conf":**
+   ```bash
+   sudo npm install -g --unsafe-perm node-red
+   ```
 
-- Erstellen Sie eine Datei namens "wpa_supplicant.conf" auf der bootfähigen Partition der MicroSD-Karte.
+6. **Starten Sie Node-RED:**
+   Nachdem die Installation abgeschlossen ist, starten Sie Node-RED mit dem Befehl:
 
-- Fügen Sie die folgenden Zeilen hinzu und ersetzen Sie "YOUR_SSID" und "YOUR_PASSWORD" durch den Namen Ihres WLANs und Ihr WLAN-Passwort:
+   ```bash
+   node-red
+   ```
 
-```plaintext
+7. **Zugriff auf Node-RED Dashboard:**
+   Öffnen Sie einen Webbrowser und navigieren Sie zu `http://<raspberry-pi-ip>:1880`, um auf die Node-RED-Oberfläche zuzugreifen.
 
-country=DE
+## Importieren eines Flows von GitHub
 
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+1. **Flow-Datei herunterladen:**
+   Gehen Sie zu https://github.com/schulsani/server/blob/main/nodered/flows.json und klicken Sie auf den "Raw"-Button, um die Rohdatei des Flows anzuzeigen. Speichern Sie die Datei auf Ihrem Computer.
 
-update_config=1
+2. **Importieren Sie den Flow in Node-RED:**
+   - Klicken Sie in der Node-RED-Oberfläche auf das Menüsymbol (oben rechts).
+   - Wählen Sie "Import" > "Clipboard".
+   - Öffnen Sie die heruntergeladene `flows.json`-Datei und fügen Sie den Inhalt in das Textfeld ein.
+   - Klicken Sie auf "Import".
 
-network={
+Nachdem Sie den Flow importiert haben, sollten die MQTT- und MySQL-Nodes bereits enthalten sein.
 
-ssid="YOUR_SSID"
+## Verbindung mit MQTT- und MySQL-Server
 
-psk="YOUR_PASSWORD"
+1. **MQTT-Server verbinden:**
+   - Öffnen Sie den MQTT-Node in der Arbeitsfläche.
+   - Konfigurieren Sie die MQTT-Einstellungen im Node entsprechend den zuvor generierten Anmeldeinformationen für den MQTT-Server.
 
-key_mgmt=WPA-PSK
+2. **MySQL-Server verbinden:**
+   - Öffnen Sie den MySQL-Node in der Arbeitsfläche.
+   - Konfigurieren Sie die MySQL-Einstellungen im Node mit den Anmeldeinformationen für den MySQL-Server.
 
-}
-
-```
-
-3. **Statische IP-Adresse konfigurieren:**
-
-- Erstellen Sie eine neue Datei mit dem Namen "schulsani.local" unter dem Verzeichnis "/etc/dhcpcd.conf" auf dem Raspberry Pi.
-
-- Fügen Sie folgende Zeilen hinzu, um die statische IP-Adresse festzulegen:
-
-```plaintext
-
-interface wlan0
-
-static ip_address=192.168.1.100/24
-
-static routers=192.168.1.1
-
-static domain_name_servers=192.168.1.1
-
-```
-
-4. **Raspberry Pi starten:**
-
-- Legen Sie die MicroSD-Karte in den Raspberry Pi ein und starten Sie ihn.
-
-- Warten Sie, bis der Raspberry Pi hochgefahren ist und eine Verbindung zum WLAN hergestellt hat.
-
-5. **Testen der Verbindung:**
-
-- Öffnen Sie einen Webbrowser und geben Sie "schulsani.local" in die Adressleiste ein.
-
-- Sie sollten nun auf die Weboberfläche des Raspberry Pi zugreifen können.
-
-Durch diese Schritte sollte Ihr Raspberry Pi erfolgreich mit der IP-Adresse "schulsani.local" eingerichtet sein.
+3. **Deploy:**
+   Klicken Sie auf "Deploy", um die Änderungen zu übernehmen und den Flow auszuführen.
 

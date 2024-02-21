@@ -4,7 +4,7 @@ layout: home
 parent: Raspberry
 grand_parent: Setup
  
-nav_order: 2
+nav_order: 5
 ---
 # Installation von Apache2 und Kopieren von Inhalten aus GitHub
 

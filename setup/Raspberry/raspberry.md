@@ -4,7 +4,7 @@ layout: home
 parent: Raspberry
 grand_parent: Setup
  
-nav_order: 1
+nav_order: 2
 ---
 # Einrichtung eines Raspberry Pi mit schulsani.local als IP-Adresse
 
