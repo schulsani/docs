@@ -63,7 +63,7 @@ grand_parent: Setup
 | Upload Speed                  | 921600                  |
 | USB Mode                      | CDC und JTAG            |
 
-Die fettgedruckten Optionen sind erforderlich, andere werden entsprechend den tatsächlichen Bedingungen ausgewählt.
+
 ---
 **Details anpassen**
 Nun kannst du die login daten für mqtt und für Wlan eingeben
