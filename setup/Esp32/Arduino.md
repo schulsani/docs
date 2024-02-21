@@ -66,16 +66,16 @@ grand_parent: Setup
 
 ---
 **Details anpassen**
-Nun kannst du die login daten für mqtt und für Wlan eingeben
-`
-const char *ssid = "";
-const char *password = "";
-const char *mqtt_broker = "schulsani.local";
-const char *topic = "";
-const char *mqtt_username = "";
-const char *mqtt_password = "";
-const int mqtt_port = 1883;
-`
+Nun kannst du die Login Daten für Mqtt und für Wlan eingeben
+
+    const char *ssid = "";
+    const char *password = "";
+    const char *mqtt_broker = "schulsani.local";
+    const char *topic = "";
+    const char *mqtt_username = "";
+    const char *mqtt_password = "";
+    const int mqtt_port = 1883;
+
 ---
 
 **Hochladen des Codes**
